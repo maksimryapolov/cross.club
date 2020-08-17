@@ -220,18 +220,18 @@
             </div>
         </section>
 
-        <section class="b-popular">
-            <div class="container">
-                <h1 class="b-popular__title">Популярные товары</h1>
-                <div class="owl-carousel owl-theme" id="carousel">
-                    <div class="slider__item" style="background-image:url('{{ asset('images/cross1.jpg') }}')"></div>
-                    <div class="slider__item" style="background-image:url('{{ asset('images/cross2.jpg') }}')"></div>
-                    <div class="slider__item" style="background-image:url('{{ asset('images/cross3.jpg') }}')"></div>
-                    <div class="slider__item" style="background-image:url('{{ asset('images/cross4.jpg') }}')"></div>
+        @if($popular)
+            <section class="b-popular">
+                <div class="container">
+                    <h1 class="b-popular__title">Популярные товары</h1>
+                    <div class="owl-carousel owl-theme" id="carousel">
+                        @foreach ($popular as $pop)
+                            <div class="slider__item" style="background-image:url('{{ $pop->image }}')"></div>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-            </div>
-        </section>
+            </section>
+        @endif
 
 
         <div class='formalization'>

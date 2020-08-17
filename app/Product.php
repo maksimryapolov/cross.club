@@ -11,11 +11,13 @@ class Product extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'price', 'image'];
+    protected $fillable = ['name', 'price', 'image', 'popular'];
     /**
      * @var
      */
     protected $file;
+
+    const MIN_FOR_SLIDE = 4;
 
     /**
      * @param $data
@@ -25,6 +27,10 @@ class Product extends Model
         $path = '';
         if (isset($data['image']) && !empty($data['image'])) {
             $path = Images::saveInFolder($data['image']);
+        }
+
+        if(isset($data['popular'])) {
+            $data['popular'] = intval($data['popular'] == 'on');
         }
 
         $data['image'] = $path;
@@ -41,6 +47,10 @@ class Product extends Model
             $data['image'] = Images::changeCurrentFile($data['image'], $this->image);             
         }
 
+        if(isset($data['popular'])) {
+            $data['popular'] = intval($data['popular'] == 'on');
+        }
+
         $this->update($data);
     }
 
@@ -54,6 +64,17 @@ class Product extends Model
         }
 
         $this->delete();
+    }
+
+    public static function getPopular()
+    {
+        $popular = Product::where([['popular', '=', 1], ['image', '!=', ""]])->get();
+        if($popular->count() < self::MIN_FOR_SLIDE) {
+            return false;
+        }
+
+        return $popular;
+
     }
 
     public function Offers()

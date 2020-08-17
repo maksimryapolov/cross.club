@@ -34,13 +34,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="form_image">Фото</label>
-                            <input type="file" id="form_image" name="image">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="form_image">Фото</label>
+                                <input type="file" id="form_image" name="image">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="form_popular">Популярный товар</label>
+                                <input type="checkbox" id="form_popular" name="popular">
+                            </div>
                         </div>
                     </div>
-
                     <div class="text-center">
                         <input type="submit" class="btn btn-success btn-send col-md-6" value="Создать">
                     </div>

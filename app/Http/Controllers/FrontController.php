@@ -10,9 +10,11 @@ class FrontController extends Controller
     public function index()
     {
         $products = Product::all();
-
+        $popular = Product::getPopular();
+        
         return view('index', [
-            'products' => $products
+            'products' => $products,
+            'popular' => $popular
         ]);
     }
 }
