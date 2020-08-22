@@ -26,14 +26,13 @@ class Images implements Files
     }
 
     /**
-     * @param string $upload
+     * @param  $upload
      * @param string $currentPath
      * @return mixed
      */
-    public static function changeCurrentFile(string $upload, string $currentPath)
+    public static function changeCurrentFile($upload, string $currentPath)
     {
         if(!empty($currentPath)) {
-            
             $pathDir = Storage::disk(self::CUR_DISK)->files(self::DIR_IMAGE);
             foreach($pathDir as $item) {
                 if(strpos($currentPath, $item) !== false) {
@@ -41,8 +40,12 @@ class Images implements Files
                 }
             }
 
-            $path = Storage::disk(self::CUR_DISK)->putFileAs(self::DIR_IMAGE, new File($upload->path()), $name);
-            return Storage::url($path);
+            if(!empty($name) ) {
+                $path = Storage::disk(self::CUR_DISK)->putFileAs(self::DIR_IMAGE, new File($upload->path()), $name);
+                return Storage::url($path);
+            }
+
+            return self::saveInFolder($upload);
         }
 
         return self::saveInFolder($upload);

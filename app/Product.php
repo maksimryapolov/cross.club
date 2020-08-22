@@ -38,6 +38,7 @@ class Product extends Model
     public function changeItem($data)
     {
         if(isset($data['image']) && !empty($data['image'])) {
+
             $data['image'] = Images::changeCurrentFile($data['image'], $this->image);             
         }
 
