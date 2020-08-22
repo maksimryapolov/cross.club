@@ -7,7 +7,6 @@
             @if($feedback->isEmpty())
                 <div class="empty-block h1">
                     <p class="empty-block__description">Отзывов нет... :(</p>
-                    <p><a class="empty-block__link" href="{{ route('admin.cabinet.create') }}">Добавить товар</a></p>
                 </div>
             @else
                 <table>

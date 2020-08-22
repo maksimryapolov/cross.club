@@ -58,9 +58,12 @@
                         <div class="card-header text-center">
                             <p class="h1">Сообщение:</p>
                         </div>
-                        <p class="text-justify font-weight-bold bg-white p-4">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
+                        <p class="text-justify font-weight-bold bg-white p-4">
+                            {{ $feedback->message }}
+                        </p>
                     </div>
                 @endisset
+                <a class="btn col-3 font-weight-bold" href="{{ route('admin.feedback') }}">&#8592;&nbsp;Назад</a>
             </div>
         </div>
     </div>
