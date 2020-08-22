@@ -247,7 +247,7 @@
                         <div class="formalization__bottom">
                             <h3>Выберите пару</h3>
                             <p class="formalization__desc">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi necessitatibus a modi deserunt perspiciatis architecto placeat quidem consequuntur.
+                                Выберите из&nbsp;нашего ассортимента пару которая гармонично сочетается с&nbsp;ваши стилем. <br>Не&nbsp;заставляйте себя ждать, нажимайте заказать.
                             </p>
                         </div>
                     </div>
@@ -261,7 +261,7 @@
                         <div class="formalization__bottom">
                             <h3>Заполните форму</h3>
                             <p class="formalization__desc">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi necessitatibus a modi deserunt perspiciatis architecto placeat quidem consequuntur.
+                                Оставьте свои контактные данные.<br>Заполните поля телефон и&nbsp;email, чтобы мы&nbsp;могли связаться с&nbsp;Вами.
                             </p>
                         </div>
                     </div>
@@ -274,7 +274,7 @@
                         <div class="formalization__bottom">
                             <h3>Ожидайте звонка</h3>
                             <p class="formalization__desc">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi necessitatibus a modi deserunt perspiciatis architecto placeat quidem consequuntur.
+                                Мы&nbsp;не&nbsp;заставим Вас долго ждать.<br>В&nbsp;самое ближайшее время свяжемся с&nbsp;Вами и&nbsp;ответим на&nbsp;все интересующие Вас вопросы!
                             </p>
                         </div>
                     </div>

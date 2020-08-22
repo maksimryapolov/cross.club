@@ -19,6 +19,8 @@ class Product extends Model
 
     const MIN_FOR_SLIDE = 4;
 
+    const PATH_NO_IMAGE = 'images/no-image.jpg';
+
     /**
      * @param $data
      */
@@ -84,13 +86,34 @@ class Product extends Model
 
     static public function getJsData() 
     {
-        return Product::all()->map(function($item) {
+         $products = Product::all()->map(function($item) {
             $item->push($item->offers);
             $item->showModal = false;
             $item->basePrice = $item->price;
             $item->currentSize = null;
             return $item;
         });
+
+        return self::setImage($products);
+    }
+
+    private static function setImage($items)
+    {
+        foreach($items as &$item) {
+            if(empty($item->image)) {
+                $item->image = self::PATH_NO_IMAGE;
+            }
+        }
+
+        return $items;
+    }
+
+    public static function getListProduct()
+    {
+        $products = self::all();
+        
+        // dd(self::setImage($products));
+        return self::setImage($products);
     }
 
 }

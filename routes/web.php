@@ -20,6 +20,14 @@ Auth::routes([]);
 Route::get('/', 'FrontController@index');
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth', 'password.confirm']], function() {
+    
+    Route::resource('/cabinet/feedback', 'FeedbackControllers', [
+        'names' => [
+            'index' => 'admin.feedback',
+            'show' => 'admin.feedback.show'
+        ]
+    ]);
+
     Route::resource('/cabinet', 'AdminController',
         [
             'names' => [
@@ -47,7 +55,6 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth', 'password.confirm
             ]
         ]
     );
-
 });
 
 Route::post('/feedback', 'FeedbackController@store');

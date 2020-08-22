@@ -23,6 +23,11 @@
                     Добавить предложение
                 </a>
             </div>
+            <div>
+                <a href="{{ route('admin.feedback') }}" class="nav-link">
+                    Обратная связь
+                </a>
+            </div>
             <div class="nav-item">
                 <img src="{{ asset('images/svg/undo.svg') }}" alt="back">
                 <a class="nav-link" href="/">На сайт</a>
