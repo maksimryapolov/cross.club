@@ -51,6 +51,13 @@
 
     .b-popup__container {
         color: black;
+        .b-popup__title {
+            font-size: 2rem;
+        }
+        .b-popup__description {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
     }
 
     .popup-enter {

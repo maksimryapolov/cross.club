@@ -6875,7 +6875,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".b-popup-bg[data-v-478d961c] {\n  z-index: 100;\n}\n.b-popup__container[data-v-478d961c] {\n  color: black;\n}\n.popup-enter[data-v-478d961c] {\n  opacity: 0;\n}\n.popup-enter[data-v-478d961c] {\n  transform: translate(-50%, -180%);\n}\n.popup-leave-to[data-v-478d961c] {\n  transform: translate(-50%, 30%);\n  opacity: 0;\n}\n.popup-enter-active[data-v-478d961c], .popup-leave-active[data-v-478d961c] {\n  transition: all 0.25s ease-in;\n}\n.popup-enter-to[data-v-478d961c] {\n  opacity: 1;\n}", ""]);
+exports.push([module.i, ".b-popup-bg[data-v-478d961c] {\n  z-index: 100;\n}\n.b-popup__container[data-v-478d961c] {\n  color: black;\n}\n.b-popup__container .b-popup__title[data-v-478d961c] {\n  font-size: 2rem;\n}\n.b-popup__container .b-popup__description[data-v-478d961c] {\n  font-size: 1.2rem;\n  font-weight: bold;\n}\n.popup-enter[data-v-478d961c] {\n  opacity: 0;\n}\n.popup-enter[data-v-478d961c] {\n  transform: translate(-50%, -180%);\n}\n.popup-leave-to[data-v-478d961c] {\n  transform: translate(-50%, 30%);\n  opacity: 0;\n}\n.popup-enter-active[data-v-478d961c], .popup-leave-active[data-v-478d961c] {\n  transition: all 0.25s ease-in;\n}\n.popup-enter-to[data-v-478d961c] {\n  opacity: 1;\n}", ""]);
 
 // exports
 
