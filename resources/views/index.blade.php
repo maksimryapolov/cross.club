@@ -220,18 +220,18 @@
             </div>
         </section>
 
-        <section class="b-popular">
-            <div class="container">
-                <h1 class="b-popular__title">Популярные товары</h1>
-                <div class="owl-carousel owl-theme" id="carousel">
-                    <div class="slider__item" style="background-image:url('{{ asset('images/cross1.jpg') }}')"></div>
-                    <div class="slider__item" style="background-image:url('{{ asset('images/cross2.jpg') }}')"></div>
-                    <div class="slider__item" style="background-image:url('{{ asset('images/cross3.jpg') }}')"></div>
-                    <div class="slider__item" style="background-image:url('{{ asset('images/cross4.jpg') }}')"></div>
+        @if($popular)
+            <section class="b-popular">
+                <div class="container">
+                    <h1 class="b-popular__title">Популярные товары</h1>
+                    <div class="owl-carousel owl-theme" id="carousel">
+                        @foreach ($popular as $pop)
+                            <div class="slider__item" style="background-image:url('{{ $pop->image }}')"></div>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-            </div>
-        </section>
+            </section>
+        @endif
 
 
         <div class='formalization'>
@@ -247,7 +247,7 @@
                         <div class="formalization__bottom">
                             <h3>Выберите пару</h3>
                             <p class="formalization__desc">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi necessitatibus a modi deserunt perspiciatis architecto placeat quidem consequuntur.
+                                Выберите из&nbsp;нашего ассортимента пару которая гармонично сочетается с&nbsp;ваши стилем. <br>Не&nbsp;заставляйте себя ждать, нажимайте заказать.
                             </p>
                         </div>
                     </div>
@@ -261,7 +261,7 @@
                         <div class="formalization__bottom">
                             <h3>Заполните форму</h3>
                             <p class="formalization__desc">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi necessitatibus a modi deserunt perspiciatis architecto placeat quidem consequuntur.
+                                Оставьте свои контактные данные.<br>Заполните поля телефон и&nbsp;email, чтобы мы&nbsp;могли связаться с&nbsp;Вами.
                             </p>
                         </div>
                     </div>
@@ -274,7 +274,7 @@
                         <div class="formalization__bottom">
                             <h3>Ожидайте звонка</h3>
                             <p class="formalization__desc">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi necessitatibus a modi deserunt perspiciatis architecto placeat quidem consequuntur.
+                                Мы&nbsp;не&nbsp;заставим Вас долго ждать.<br>В&nbsp;самое ближайшее время свяжемся с&nbsp;Вами и&nbsp;ответим на&nbsp;все интересующие Вас вопросы!
                             </p>
                         </div>
                     </div>

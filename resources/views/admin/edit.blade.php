@@ -47,12 +47,25 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group link-item">
-                                    <a href="{{ route('admin.offers.create', ['product_id' => $product->id]) }}">Добавить предложение</a>
+                                <div class="form-group">
+                                    <label for="form_popular">Популярный товар</label>
+                                    <input id="form_popular"
+                                           type="checkbox"
+                                           name="popular"
+                                           @if($product->popular)
+                                                checked=""
+                                           @endif
+                                    >
                                 </div>
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group link-item h4">
+                                    <a class="offer_link" href="{{ route('admin.offers.create', ['product_id' => $product->id]) }}">Добавить предложение</a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             @if($errors->has('product_id'))
                                 <div class="alert alert-danger col-md-12" role="alert">

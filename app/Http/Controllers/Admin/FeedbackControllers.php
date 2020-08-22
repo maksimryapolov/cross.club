@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
+use App\Feedback;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreProduct;
-use App\Product;
+use Carbon\Carbon;
+use Illuminate\Foundation\Console\Presets\Vue;
+use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class FeedbackControllers extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +17,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index', 
-            [
-                'products' => Product::all()
-            ]
-        );
+        $feedback = Feedback::orderByDesc('created_at')->paginate(Feedback::COUNT_SHOW);
+
+        return view('admin.feedback.index', [
+            'feedback' => $feedback
+        ]);
     }
 
     /**
@@ -29,7 +31,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        //
     }
 
     /**
@@ -38,22 +40,20 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProduct $request)
+    public function store(Request $request)
     {
-        $product = new Product();
-        $product->add($request->all());
-
-        return redirect()->route('admin');
+        //
     }
 
     /**
      * Display the specified resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Feedback $feedback)
     {
-        return redirect()->route('admin');
+        return view('admin.feedback.show', ['feedback' => $feedback]);
     }
 
     /**
@@ -64,13 +64,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::find($id);
-        $offer = $product->offers;
-
-        return view('admin.edit', [
-            'product' => $product,
-            'offer' => $offer
-        ]);
+        //
     }
 
     /**
@@ -80,12 +74,9 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreProduct $request, $id)
+    public function update(Request $request, $id)
     {
-        $product = Product::find($id);        
-        $product->changeItem($request->all());
-
-        return redirect()->route('admin');
+        //
     }
 
     /**
@@ -96,8 +87,6 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $product = Product::find($id);
-        $product->remove();
-        return redirect()->route('admin');
+        //
     }
 }

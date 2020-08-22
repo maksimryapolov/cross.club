@@ -17,7 +17,7 @@ class CreateFeedbackTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('client')->require();
-            $table->string('phone', 11)->nullable();
+            $table->string('phone', 20)->nullable();
             $table->string('message')->nullable();
             $table->string('name_product')->nullable();
             $table->string('size')->nullable();

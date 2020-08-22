@@ -2309,6 +2309,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api').then(function (res) {
         _this.products = res.data.products;
+        console.log(_this.products);
       });
     },
     checkCountOffer: function checkCountOffer(item) {
