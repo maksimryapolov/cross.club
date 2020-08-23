@@ -108,7 +108,6 @@ export default {
         getData() {
             axios.get('/api').then(res => {
                 this.products = res.data.products;
-                console.log(this.products);
             });
 
         },
