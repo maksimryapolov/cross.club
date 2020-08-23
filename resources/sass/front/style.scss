@@ -102,6 +102,9 @@ ul {
     @include media-breakpoint-down(xs) {
       text-align: center;
       font-size: 13px;
+      align-items: center;
+      margin-top: 20px;
+      font-weight: bold;
     }
 
     a {
@@ -124,16 +127,22 @@ ul {
   }
 
   .header-banner {
-    background-image: url("../../images/banner2.jpg");
+    background-image: url("../../images/banner.jpg");
+    background-color: rgba(0, 0, 0, .5);
+    background-blend-mode: color;
     background-repeat: no-repeat;
     color: #fff;
     background-position-y: -226px;
     background-size: cover;
     font-family: RobotoRegular, sans-serif;
 
-    @include media-breakpoint-down(sm) {
-      background-position: center;
+    @include media-breakpoint-up(md) {
+      display: none;
     }
+
+    @include media-breakpoint-down(sm) {
+       background-position: center;
+     }
     @media (max-width: 1140px ) {
       padding: 10px 0 20px 0 ;
     }
@@ -186,6 +195,21 @@ ul {
   background-color: rgba(0, 0, 0, .5);
   background-blend-mode: color;
   min-height: 550px;
+}
+
+@include media-breakpoint-down(lg) {
+  .b-banner {
+    background-size: 1185px;
+    padding-bottom: 0;
+    min-height: 515px;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .carousel-media {
+    height: 324px;
+
+  }
 }
 
 .carousel-caption {
@@ -422,6 +446,11 @@ ul {
   }
   &__contact {
     display: flex;
+    @include media-breakpoint-down(xs) {
+      flex-direction: column;
+      height: 170px;
+      justify-content: space-around;
+    }
     @include media-breakpoint-down(sm) {
       margin-bottom: 25px;
     }
@@ -608,10 +637,12 @@ button:focus {
 
 .formalization {
   margin: 70px 0 55px 0;
+
   &__tablet {
     @include media-breakpoint-down(sm) {
       display: none;
     }
+
   }
   &__item {
     display: flex;

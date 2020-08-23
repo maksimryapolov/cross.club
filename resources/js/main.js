@@ -45,7 +45,7 @@ $(document).ready(function(){
         }
     });
 
-    $(".formalizations__tablet").owlCarousel({
+    $("#formalization").owlCarousel({
         responsive : {
             0: {
                 items: 2,
@@ -57,5 +57,4 @@ $(document).ready(function(){
             }
         }
     });
-
 });

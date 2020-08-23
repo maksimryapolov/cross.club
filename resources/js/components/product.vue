@@ -89,6 +89,7 @@ import TypeIt from "typeit";
 import offers from './offers';
 import modal from './modal';
 
+
 export default {
     name: 'app',
     data() {
@@ -106,6 +107,7 @@ export default {
     },
     methods: {
         getData() {
+
             axios.get('/api').then(res => {
                 this.products = res.data.products;
             });
@@ -258,10 +260,16 @@ export default {
             display: flex;
             justify-content: space-around;
             align-items: center;
+            @media all and (max-width: 576px) {
+                flex-direction: column;
+            }
         }
 
         &__price {
             font-size: 1.22em;
+            @media all and (max-width: 576px) {
+                margin-bottom: 5px;
+            }
         }
 
         .success {

@@ -1,15 +1,14 @@
 @extends('layouts.layout')
 
 @section('content')
-
      <header class="header" id="header">
         <div class="header-nav__top">
             <div class="container header-group">
                 <div class="row header-block">
-                    <div class="col-8 col-sm-6">
+                    <div class="col-8 col-sm-5">
                         <img class="header-logo" src="{{ asset('images/svg/logo.svg') }}" alt="logo">
                     </div>
-                    <div class="col-6">
+                    <div class="col-sm-7 col-xs-12">
                         <div class="header-top__link">
                             <a class="header__number header__info" href="tel:+89507174848">
                                 +7(950) 717-48-48
@@ -37,7 +36,7 @@
             </ul>
         </div>
         
-        {{-- <div class="header-banner">
+        <div class="header-banner">
             <div class="container">
                 <h1 class="header-banner__title">Распродажа кроссовок</h1>
                 <p class="header-banner__description">
@@ -45,10 +44,11 @@
                     Небольшая качественная коллекции обуви распродаются со&nbsp;скидкой до&nbsp;70%.<br> Успейте порадовать себя и&nbsp;своих близких.
                 </span>
                 </p>
-                <a href="javascript:void(0)" class="header-banner__btn popup button_servis" data-popup="#header_modal">Заказать звонок</a>
+                <a href="#catalog" class="button_servis header-banner__btn transition">Перейти к каталогу</a>
+                {{--<a href="javascript:void(0)" class="header-banner__btn popup button_servis" data-popup="#header_modal">Заказать звонок</a>--}}
             </div>
-        </div> --}}
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide carousel-media d-none d-md-block" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -233,7 +233,6 @@
             </section>
         @endif
 
-
         <div class='formalization'>
             <div class="container">
                 <div class="row owl-carousel owl-theme formalization__tablet" >
@@ -290,7 +289,7 @@
                         <div class="formalization__bottom">
                             <h3>Выберите пару</h3>
                             <p class="formalization__desc">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi necessitatibus a modi deserunt perspiciatis architecto placeat quidem consequuntur.
+                                Выберите из&nbsp;нашего ассортимента пару которая гармонично сочетается с&nbsp;ваши стилем. <br>Не&nbsp;заставляйте себя ждать, нажимайте заказать.
                             </p>
                         </div>
                     </div>
@@ -304,7 +303,7 @@
                         <div class="formalization__bottom">
                             <h3>Заполните форму</h3>
                             <p class="formalization__desc">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi necessitatibus a modi deserunt perspiciatis architecto placeat quidem consequuntur.
+                                Оставьте свои контактные данные.<br>Заполните поля телефон и&nbsp;email, чтобы мы&nbsp;могли связаться с&nbsp;Вами.
                             </p>
                         </div>
                     </div>
@@ -317,7 +316,7 @@
                         <div class="formalization__bottom">
                             <h3>Ожидайте звонка</h3>
                             <p class="formalization__desc">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi necessitatibus a modi deserunt perspiciatis architecto placeat quidem consequuntur.
+                                Мы&nbsp;не&nbsp;заставим Вас долго ждать.<br>В&nbsp;самое ближайшее время свяжемся с&nbsp;Вами и&nbsp;ответим на&nbsp;все интересующие Вас вопросы!
                             </p>
                         </div>
                     </div>
