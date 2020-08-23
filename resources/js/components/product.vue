@@ -18,6 +18,14 @@
                     ></offers>
                     <div v-else>Похоже этот товар<br/> закончился 😢</div>
                 </div>
+
+                <div class="products__quantity">
+                    <div v-if="product.quantity >= 0">
+                        {{ product.quantity | quantity(product.quantity) }}
+                    </div>
+                    <div v-else>В наличии</div>
+                </div>
+
                 <a href="javascrip:void(0)"
                 @click.prevent="openModal(product.id)"
                 data-popup="#header_modal-product" class="catalog-product__btn button_servis popup"
@@ -36,14 +44,18 @@
                         </div>
                         <form action="" class="popup-form" @submit.prevent="sendData($event)">
                             <input type="hidden" name="name" value="feedback_product" />
+                            <input type="hidden" name="size" v-model="product.currentSize" />
+                            <input type="hidden" name="name_product" v-model="product.name" />
+                            <input type="hidden" name="price" v-model="product.price" />
+
                             <input class="popup-form__in"
-                                    type="text" 
-                                    name="client" 
+                                    type="text"
+                                    name="client"
                                     placeholder="Введите имя..."
                                     autocomplete="off"
                                     required=''
                                 v-model='client'
-                                    
+
                             />
                             <input class="popup-form__in" type="email" name="email" autocomplete="off" required='' placeholder="Введите email...">
                             <input class="popup-form__in maskphone" v-mask="'+7 (999) 999 99-99'" type="text" name="phone" autocomplete="off" placeholder="Введите номер телефона...">
@@ -88,7 +100,7 @@ import axios from 'axios';
 import TypeIt from "typeit";
 import offers from './offers';
 import modal from './modal';
-
+import quantity from './filters/quantity';
 
 export default {
     name: 'app',
@@ -98,16 +110,18 @@ export default {
             openBg: false,
             formErrors: [],
             response: false,
-            client: ''
+            client: '',
         }
     },
     components: {
         offers,
         modal
     },
+    filters: {
+        quantity
+    },
     methods: {
         getData() {
-
             axios.get('/api').then(res => {
                 this.products = res.data.products;
             });
@@ -119,15 +133,9 @@ export default {
         setParamsOffer(offer) {
             this.products.forEach((item) => {
                 if(offer.product_id === item.id) {
-                    if(offer.price > 0) {
-                        if(item.id === offer.product_id && item.price !== offer.price){
-                            item.price = offer.price;
-                        }
-                    } else {
-                        item.price = item.basePrice;
-                    }
+                    item.quantity = offer.quantity;
                     item.currentSize = offer.size;
-                }                
+                }
             });
         },
         openModal(id) {
@@ -200,9 +208,9 @@ export default {
                 });
             }
         },
-        
+
         validNumber(num) {
-            return /\+7 \(\d{3}\) \d{3} \d{2}-\d{2}/.test(num);            
+            return /\+7 \(\d{3}\) \d{3} \d{2}-\d{2}/.test(num);
         },
         validEmail(email) {
             let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -212,7 +220,7 @@ export default {
     computed: {
          aProducts: vm => vm.products,
     },
-    
+
     mounted() {
         this.getData();
     }
@@ -224,6 +232,7 @@ export default {
     .products {
         display: flex;
         justify-content: center;
+        font-size: 1.22em;
 
         &__item {
             background-color: #fff;
@@ -260,13 +269,19 @@ export default {
             display: flex;
             justify-content: space-around;
             align-items: center;
+            flex-wrap: wrap;
             @media all and (max-width: 576px) {
                 flex-direction: column;
             }
         }
 
+        &__quantity {
+            margin-top: 10px;
+            border-bottom: 1px dotted #1d643b;
+            display: inline-block;
+        }
+
         &__price {
-            font-size: 1.22em;
             @media all and (max-width: 576px) {
                 margin-bottom: 5px;
             }
@@ -307,7 +322,7 @@ export default {
             }
 
             &__title,
-            &__price {  
+            &__price {
                 display: flex;
                 justify-content: space-between;
                 position: relative;

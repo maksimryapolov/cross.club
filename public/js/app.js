@@ -2139,7 +2139,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "offers",
   props: ['offers'],
@@ -2164,7 +2163,7 @@ __webpack_require__.r(__webpack_exports__);
       this.params.id = item.id;
       this.params.price = item.price;
       this.params.product_id = item.product_id;
-      console.log(this.params);
+      this.params.quantity = item.quantity;
       this.$emit('choose-size', this.params);
       this.changeToggle();
     }
@@ -2187,6 +2186,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var typeit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeit */ "./node_modules/typeit/dist/typeit.es.min.js");
 /* harmony import */ var _offers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./offers */ "./resources/js/components/offers.vue");
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modal */ "./resources/js/components/modal.vue");
+/* harmony import */ var _filters_quantity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./filters/quantity */ "./resources/js/components/filters/quantity.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2284,6 +2284,19 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -2303,6 +2316,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     offers: _offers__WEBPACK_IMPORTED_MODULE_2__["default"],
     modal: _modal__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
+  filters: {
+    quantity: _filters_quantity__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
   methods: {
     getData: function getData() {
       var _this = this;
@@ -2317,14 +2333,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     setParamsOffer: function setParamsOffer(offer) {
       this.products.forEach(function (item) {
         if (offer.product_id === item.id) {
-          if (offer.price > 0) {
-            if (item.id === offer.product_id && item.price !== offer.price) {
-              item.price = offer.price;
-            }
-          } else {
-            item.price = item.basePrice;
-          }
-
+          item.quantity = offer.quantity;
           item.currentSize = offer.size;
         }
       });
@@ -6893,7 +6902,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".sizes__wrapper[data-v-0e5c6022] {\n  display: flex;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n}\n.sizes__dropdown[data-v-0e5c6022] {\n  margin: 0 auto;\n  position: relative;\n  max-width: 400px;\n}\n.sizes__title[data-v-0e5c6022] {\n  width: 163px;\n  display: block;\n  padding: 8px 16px;\n  border: 1px solid #6bbd14;\n  cursor: pointer;\n  border-radius: 45px;\n  margin-bottom: 0;\n}\n.sizes__block[data-v-0e5c6022] {\n  list-style: none;\n  position: absolute;\n  width: 100%;\n  z-index: 2;\n}\n.sizes__item[data-v-0e5c6022] {\n  padding: 0px 16px;\n  background: #fff;\n  color: #343838;\n  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);\n  height: 0px;\n  overflow: hidden;\n  cursor: pointer;\n  transition: height 0.1s linear 0s;\n}\n.sizes__item[data-v-0e5c6022]:hover, .sizes__item.selected[data-v-0e5c6022] {\n  background: #24bed3;\n  color: #FAFAFA;\n  border-left: 2px solid #6bbd14 !important;\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);\n}\n.sizes .open .sizes__title[data-v-0e5c6022] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n}\n.sizes .open .sizes__item[data-v-0e5c6022] {\n  padding: 8px 16px;\n  height: 34px;\n  border: 1px solid #6bbd14;\n  border-top: none;\n  transition: 0.2s;\n}\n.sizes .open .sizes__item[data-v-0e5c6022]:last-child {\n  border-bottom-left-radius: 30px;\n  border-bottom-right-radius: 30px;\n}", ""]);
+exports.push([module.i, ".sizes[data-v-0e5c6022] {\n  font-size: 1rem;\n}\n.sizes__wrapper[data-v-0e5c6022] {\n  display: flex;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n}\n.sizes__dropdown[data-v-0e5c6022] {\n  margin: 0 auto;\n  position: relative;\n  max-width: 400px;\n}\n.sizes__title[data-v-0e5c6022] {\n  width: 163px;\n  display: block;\n  padding: 8px 16px;\n  border: 1px solid #6bbd14;\n  cursor: pointer;\n  border-radius: 45px;\n  margin-bottom: 0;\n}\n.sizes__block[data-v-0e5c6022] {\n  list-style: none;\n  position: absolute;\n  width: 100%;\n  z-index: 2;\n}\n.sizes__item[data-v-0e5c6022] {\n  padding: 0px 16px;\n  background: #fff;\n  color: #343838;\n  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);\n  height: 0px;\n  overflow: hidden;\n  cursor: pointer;\n  transition: height 0.1s linear 0s;\n}\n.sizes__item[data-v-0e5c6022]:hover, .sizes__item.selected[data-v-0e5c6022] {\n  background: #24bed3;\n  color: #FAFAFA;\n  border-left: 2px solid #6bbd14 !important;\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);\n}\n.sizes .open .sizes__title[data-v-0e5c6022] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n}\n.sizes .open .sizes__item[data-v-0e5c6022] {\n  padding: 8px 16px;\n  height: 34px;\n  border: 1px solid #6bbd14;\n  border-top: none;\n  transition: 0.2s;\n}\n.sizes .open .sizes__item[data-v-0e5c6022]:last-child {\n  border-bottom-left-radius: 30px;\n  border-bottom-right-radius: 30px;\n}", ""]);
 
 // exports
 
@@ -6913,7 +6922,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".products[data-v-1b2b3ef4] {\n  display: flex;\n  justify-content: center;\n  /* loader */\n}\n.products__item[data-v-1b2b3ef4] {\n  background-color: #fff;\n  padding: 20px 10px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  box-shadow: none;\n  transition: box-shadow 0.2s linear;\n  margin-bottom: 30px;\n}\n.products__item[data-v-1b2b3ef4]:hover {\n  box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.3);\n}\n.products__name[data-v-1b2b3ef4] {\n  font-family: Arial, Helvetica, sans-serif;\n  color: rgba(51, 51, 51, 0.85);\n  font-size: 1.2em;\n  padding-bottom: 15px;\n  border-bottom: 1px solid rgba(204, 204, 204, 0.719);\n  margin: 30px 0;\n}\n.products__image[data-v-1b2b3ef4] {\n  width: 100%;\n  height: 200px;\n  background-position: center;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.products__bottom[data-v-1b2b3ef4] {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n@media all and (max-width: 576px) {\n.products__bottom[data-v-1b2b3ef4] {\n    flex-direction: column;\n}\n}\n.products__price[data-v-1b2b3ef4] {\n  font-size: 1.22em;\n}\n@media all and (max-width: 576px) {\n.products__price[data-v-1b2b3ef4] {\n    margin-bottom: 5px;\n}\n}\n.products .success[data-v-1b2b3ef4] {\n  font-size: 2rem;\n  color: #057804;\n}\n.products .errors__title[data-v-1b2b3ef4] {\n  margin-bottom: 10px;\n  padding-bottom: 5px;\n  font-weight: bold;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.2);\n}\n.products .info-product[data-v-1b2b3ef4] {\n  display: flex;\n  width: 100%;\n  align-items: flex-end;\n  margin-bottom: 20px;\n}\n.products .info-product__icon[data-v-1b2b3ef4] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../images/svg/feet.svg */ "./resources/images/svg/feet.svg")) + ");\n  width: 100px;\n  height: 50px;\n  background-position: center;\n}\n.products .info-product__content[data-v-1b2b3ef4] {\n  font-size: 1.2rem;\n}\n.products .info-product__title[data-v-1b2b3ef4] {\n  margin-bottom: 12px;\n}\n.products .info-product__title[data-v-1b2b3ef4], .products .info-product__price[data-v-1b2b3ef4] {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n}\n.products .info-product__title[data-v-1b2b3ef4]::after, .products .info-product__price[data-v-1b2b3ef4]::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  border-bottom: 1px dotted black;\n  width: 100%;\n}\n.products .lds-spinner[data-v-1b2b3ef4] {\n  color: official;\n  display: inline-block;\n  position: relative;\n  width: 80px;\n  height: 80px;\n}\n.products .lds-spinner div[data-v-1b2b3ef4] {\n  transform-origin: 40px 40px;\n  -webkit-animation: lds-spinner-data-v-1b2b3ef4 1.2s linear infinite;\n          animation: lds-spinner-data-v-1b2b3ef4 1.2s linear infinite;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:after {\n  content: \" \";\n  display: block;\n  position: absolute;\n  top: 3px;\n  left: 37px;\n  width: 6px;\n  height: 18px;\n  border-radius: 20%;\n  background: #057804;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(1) {\n  transform: rotate(0deg);\n  -webkit-animation-delay: -1.1s;\n          animation-delay: -1.1s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(2) {\n  transform: rotate(30deg);\n  -webkit-animation-delay: -1s;\n          animation-delay: -1s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(3) {\n  transform: rotate(60deg);\n  -webkit-animation-delay: -0.9s;\n          animation-delay: -0.9s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(4) {\n  transform: rotate(90deg);\n  -webkit-animation-delay: -0.8s;\n          animation-delay: -0.8s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(5) {\n  transform: rotate(120deg);\n  -webkit-animation-delay: -0.7s;\n          animation-delay: -0.7s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(6) {\n  transform: rotate(150deg);\n  -webkit-animation-delay: -0.6s;\n          animation-delay: -0.6s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(7) {\n  transform: rotate(180deg);\n  -webkit-animation-delay: -0.5s;\n          animation-delay: -0.5s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(8) {\n  transform: rotate(210deg);\n  -webkit-animation-delay: -0.4s;\n          animation-delay: -0.4s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(9) {\n  transform: rotate(240deg);\n  -webkit-animation-delay: -0.3s;\n          animation-delay: -0.3s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(10) {\n  transform: rotate(270deg);\n  -webkit-animation-delay: -0.2s;\n          animation-delay: -0.2s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(11) {\n  transform: rotate(300deg);\n  -webkit-animation-delay: -0.1s;\n          animation-delay: -0.1s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(12) {\n  transform: rotate(330deg);\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n}\n@-webkit-keyframes lds-spinner-data-v-1b2b3ef4 {\n0% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes lds-spinner-data-v-1b2b3ef4 {\n0% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}", ""]);
+exports.push([module.i, ".products[data-v-1b2b3ef4] {\n  display: flex;\n  justify-content: center;\n  font-size: 1.22em;\n  /* loader */\n}\n.products__item[data-v-1b2b3ef4] {\n  background-color: #fff;\n  padding: 20px 10px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  box-shadow: none;\n  transition: box-shadow 0.2s linear;\n  margin-bottom: 30px;\n}\n.products__item[data-v-1b2b3ef4]:hover {\n  box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.3);\n}\n.products__name[data-v-1b2b3ef4] {\n  font-family: Arial, Helvetica, sans-serif;\n  color: rgba(51, 51, 51, 0.85);\n  font-size: 1.2em;\n  padding-bottom: 15px;\n  border-bottom: 1px solid rgba(204, 204, 204, 0.719);\n  margin: 30px 0;\n}\n.products__image[data-v-1b2b3ef4] {\n  width: 100%;\n  height: 200px;\n  background-position: center;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.products__bottom[data-v-1b2b3ef4] {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  flex-wrap: wrap;\n}\n@media all and (max-width: 576px) {\n.products__bottom[data-v-1b2b3ef4] {\n    flex-direction: column;\n}\n}\n.products__quantity[data-v-1b2b3ef4] {\n  margin-top: 10px;\n  border-bottom: 1px dotted #1d643b;\n  display: inline-block;\n}\n@media all and (max-width: 576px) {\n.products__price[data-v-1b2b3ef4] {\n    margin-bottom: 5px;\n}\n}\n.products .success[data-v-1b2b3ef4] {\n  font-size: 2rem;\n  color: #057804;\n}\n.products .errors__title[data-v-1b2b3ef4] {\n  margin-bottom: 10px;\n  padding-bottom: 5px;\n  font-weight: bold;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.2);\n}\n.products .info-product[data-v-1b2b3ef4] {\n  display: flex;\n  width: 100%;\n  align-items: flex-end;\n  margin-bottom: 20px;\n}\n.products .info-product__icon[data-v-1b2b3ef4] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../images/svg/feet.svg */ "./resources/images/svg/feet.svg")) + ");\n  width: 100px;\n  height: 50px;\n  background-position: center;\n}\n.products .info-product__content[data-v-1b2b3ef4] {\n  font-size: 1.2rem;\n}\n.products .info-product__title[data-v-1b2b3ef4] {\n  margin-bottom: 12px;\n}\n.products .info-product__title[data-v-1b2b3ef4], .products .info-product__price[data-v-1b2b3ef4] {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n}\n.products .info-product__title[data-v-1b2b3ef4]::after, .products .info-product__price[data-v-1b2b3ef4]::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  border-bottom: 1px dotted black;\n  width: 100%;\n}\n.products .lds-spinner[data-v-1b2b3ef4] {\n  color: official;\n  display: inline-block;\n  position: relative;\n  width: 80px;\n  height: 80px;\n}\n.products .lds-spinner div[data-v-1b2b3ef4] {\n  transform-origin: 40px 40px;\n  -webkit-animation: lds-spinner-data-v-1b2b3ef4 1.2s linear infinite;\n          animation: lds-spinner-data-v-1b2b3ef4 1.2s linear infinite;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:after {\n  content: \" \";\n  display: block;\n  position: absolute;\n  top: 3px;\n  left: 37px;\n  width: 6px;\n  height: 18px;\n  border-radius: 20%;\n  background: #057804;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(1) {\n  transform: rotate(0deg);\n  -webkit-animation-delay: -1.1s;\n          animation-delay: -1.1s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(2) {\n  transform: rotate(30deg);\n  -webkit-animation-delay: -1s;\n          animation-delay: -1s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(3) {\n  transform: rotate(60deg);\n  -webkit-animation-delay: -0.9s;\n          animation-delay: -0.9s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(4) {\n  transform: rotate(90deg);\n  -webkit-animation-delay: -0.8s;\n          animation-delay: -0.8s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(5) {\n  transform: rotate(120deg);\n  -webkit-animation-delay: -0.7s;\n          animation-delay: -0.7s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(6) {\n  transform: rotate(150deg);\n  -webkit-animation-delay: -0.6s;\n          animation-delay: -0.6s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(7) {\n  transform: rotate(180deg);\n  -webkit-animation-delay: -0.5s;\n          animation-delay: -0.5s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(8) {\n  transform: rotate(210deg);\n  -webkit-animation-delay: -0.4s;\n          animation-delay: -0.4s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(9) {\n  transform: rotate(240deg);\n  -webkit-animation-delay: -0.3s;\n          animation-delay: -0.3s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(10) {\n  transform: rotate(270deg);\n  -webkit-animation-delay: -0.2s;\n          animation-delay: -0.2s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(11) {\n  transform: rotate(300deg);\n  -webkit-animation-delay: -0.1s;\n          animation-delay: -0.1s;\n}\n.products .lds-spinner div[data-v-1b2b3ef4]:nth-child(12) {\n  transform: rotate(330deg);\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n}\n@-webkit-keyframes lds-spinner-data-v-1b2b3ef4 {\n0% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes lds-spinner-data-v-1b2b3ef4 {\n0% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}", ""]);
 
 // exports
 
@@ -42836,6 +42845,23 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
+                    _c("div", { staticClass: "products__quantity" }, [
+                      product.quantity >= 0
+                        ? _c("div", [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(
+                                  _vm._f("quantity")(
+                                    product.quantity,
+                                    product.quantity
+                                  )
+                                ) +
+                                "\n                "
+                            )
+                          ])
+                        : _c("div", [_vm._v("В наличии")])
+                    ]),
+                    _vm._v(" "),
                     _c(
                       "a",
                       {
@@ -42920,6 +42946,84 @@ var render = function() {
                                       type: "hidden",
                                       name: "name",
                                       value: "feedback_product"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: product.currentSize,
+                                        expression: "product.currentSize"
+                                      }
+                                    ],
+                                    attrs: { type: "hidden", name: "size" },
+                                    domProps: { value: product.currentSize },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          product,
+                                          "currentSize",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: product.name,
+                                        expression: "product.name"
+                                      }
+                                    ],
+                                    attrs: {
+                                      type: "hidden",
+                                      name: "name_product"
+                                    },
+                                    domProps: { value: product.name },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          product,
+                                          "name",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: product.price,
+                                        expression: "product.price"
+                                      }
+                                    ],
+                                    attrs: { type: "hidden", name: "price" },
+                                    domProps: { value: product.price },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          product,
+                                          "price",
+                                          $event.target.value
+                                        )
+                                      }
                                     }
                                   }),
                                   _vm._v(" "),
@@ -55399,6 +55503,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Feedback_vue_vue_type_template_id_995c9320_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/filters/quantity.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/filters/quantity.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return quantity; });
+function quantity(count) {
+  if (typeof count === 'undefined') {
+    return;
+  }
+
+  return count ? "\u0412 \u043D\u0430\u043B\u0438\u0447\u0438\u0438: ".concat(count) : 'Нет в наличии';
+}
 
 /***/ }),
 

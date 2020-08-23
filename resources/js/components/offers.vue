@@ -6,7 +6,6 @@
                 <label class="sizes__title"
                        :data-value="params.id"
                        @click="changeToggle"
-
                 >
                     {{ params.size ? params.size : title }}
                 </label>
@@ -47,9 +46,9 @@
             chooseItem(item) {
                 this.params.size = item.size;
                 this.params.id = item.id;
-                this.params.price = item.price
-                this.params.product_id = item.product_id
-                console.log(this.params);
+                this.params.price = item.price;
+                this.params.product_id = item.product_id;
+                this.params.quantity = item.quantity;
                 this.$emit('choose-size', this.params);
                 this.changeToggle();
             }
@@ -59,6 +58,7 @@
 
 <style scoped lang="scss">
     .sizes {
+        font-size: 1rem;
         &__wrapper {
             display: flex;
             align-items: center;
@@ -80,6 +80,7 @@
             cursor: pointer;
             border-radius: 45px;
             margin-bottom: 0;
+
         }
 
         &__block {

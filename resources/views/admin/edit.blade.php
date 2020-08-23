@@ -79,6 +79,7 @@
                                     <a title="Редактировать" class="mb-1 number-offer" href="{{ route('admin.offers.edit', ['offer' => $oItem->id]) }}">№&nbsp;{{ $oItem->id }}</a>
                                     <ul class="list-group">
                                         <li class="list-group-item">Размер:&nbsp;{{ $oItem->size }}</li>
+                                        <li class="list-group-item">Количество:&nbsp;{{ $oItem->quantity }}</li>
                                         @if($oItem->price)
                                             <li class="list-group-item">Цена:&nbsp;{{ $oItem->price }}&nbsp;₽</li>
                                         @endif

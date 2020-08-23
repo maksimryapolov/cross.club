@@ -53,10 +53,10 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="form_price">Цена</label>
-                                    <input id="form_price" type="text" name="price" value="{{ $offer->price }}" class="form-control" data-error="Lastname is required.">
-                                    @if($errors->has('price'))
-                                        <div class="alert alert-danger mt-1" role="alert">{{ $errors->first('price') }}</div>
+                                    <label for="form_quantity">Количество</label>
+                                    <input id="form_quantity" type="text" name="quantity" value="{{ $offer->quantity }}" class="form-control" data-error="Lastname is required.">
+                                    @if($errors->has('quantity'))
+                                        <div class="alert alert-danger mt-1" role="alert">{{ $errors->first('quantity') }}</div>
                                     @endif
                                 </div>
                             </div>

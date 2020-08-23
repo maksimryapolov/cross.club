@@ -30,11 +30,13 @@ class OffersControllers extends Controller
     {
         $request->validate(
             [
-                'product_id' => ['numeric', 'exists:products,id']
+                'product_id' => ['numeric', 'exists:products,id'],
+                'quantity' => ['numeric']
             ],
             [
-                'numeric' => 'Произошла ошибка при добавлении ТП. ID товара не я вляется числом!',
-                'exists' => 'Такого товара не существует!'
+                'product_id.numeric' => 'Произошла ошибка при добавлении ТП. ID товара не я вляется числом!',
+                'exists' => 'Такого товара не существует!',
+                'quantity.numeric' => 'Произошла ошибка при добавлении ТП. Количество товара не я вляется числом!'
             ]
         );
 
@@ -120,14 +122,14 @@ class OffersControllers extends Controller
     {
         return $request->validate(
             [
-                'price' => ['numeric', 'nullable'],
                 'size' => ['numeric'],
-                'product_id' => ['exists:products,id']
+                'product_id' => ['exists:products,id'],
+                'quantity' => ['numeric']
             ],
             [
-                'price.numeric' => 'Цена должна быть числом!',
                 'size.numeric' => 'Размер должен быть числом!',
-                'product_id.exists' => 'Такого товара не существует!'
+                'product_id.exists' => 'Такого товара не существует!',
+                'quantity.numeric' => 'Количество должно быть числом!'
             ]
         );
     }

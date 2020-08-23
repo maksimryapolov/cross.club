@@ -18,7 +18,6 @@ class CreateOffersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('product_id');
             $table->enum('size', Offers::SIZES);
-            $table->double('price')->nullable();
             $table->timestamps();
 
             $table->foreign('product_id')
