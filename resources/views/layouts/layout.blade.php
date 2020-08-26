@@ -7,9 +7,7 @@
     <title>Crosshop</title>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
-<body>
-    @yield('content')
+
     <script src="{{ asset('js/app.js') }}"></script>
 
     <meta name="yandex-verification" content="81a0c9986b51be94" />
@@ -27,6 +25,10 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/66744091" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
+    
+</head>
+<body>
+    @yield('content')
 
 </body>
 </html>
