@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon" />
-    <title>Crosshop</title>
+    <title>Магазин спортивных кроссовок</title>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Компания cross-shop перодаставляет ассортимент модных, спортивных моделей кроссовок" />
     <meta name="yandex-verification" content="81a0c9986b51be94" />
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
