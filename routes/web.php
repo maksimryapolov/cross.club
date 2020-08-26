@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 Auth::routes(['register' => false]);
 
@@ -60,6 +60,6 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth', 'password.confirm
 Route::post('/feedback', 'FeedbackController@store');
 
 
-Route::get('/home', 'HomeController@index')
+/* Route::get('/home', 'HomeController@index')
     ->name('home')
-    ->middleware(['auth', 'password.confirm']);
+    ->middleware(['auth', 'password.confirm']); */

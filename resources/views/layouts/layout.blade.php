@@ -8,8 +8,6 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-    <script src="{{ asset('js/app.js') }}"></script>
-
     <meta name="yandex-verification" content="81a0c9986b51be94" />
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
@@ -29,6 +27,6 @@
 </head>
 <body>
     @yield('content')
-
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

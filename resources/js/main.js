@@ -17,7 +17,7 @@ import 'owl.carousel';
 
 (() => {
     var nav = $('.b-nav');
- 
+
 	$(window).scroll(function () {
 		if ($(this).scrollTop() > 136) {
 			nav.addClass("b-nav__fix");
