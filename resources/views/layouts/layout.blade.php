@@ -12,7 +12,7 @@
     @yield('content')
     <script src="{{ asset('js/app.js') }}"></script>
 
-    <meta name="yandex-verification" content="6b879669681b7b10" />
+    <meta name="yandex-verification" content="81a0c9986b51be94" />
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
