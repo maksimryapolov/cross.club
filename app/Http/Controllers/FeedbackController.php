@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Feedback;
+use App\Mail\WelcomeMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FeedbackController extends Controller
 {
@@ -16,7 +18,15 @@ class FeedbackController extends Controller
     public function store(Request $request)
     {   
         $this->check($request);
-        Feedback::create($request->all());
+        $params = $request->all();
+        $emailTo = $params['email'];
+
+        Feedback::create($params);
+
+        Mail::to($emailTo)
+            ->bcc('crossshop31@gmail.com')
+            ->send(new WelcomeMail($params));
+
         return response()->json(['response' => true]);
     }
 
