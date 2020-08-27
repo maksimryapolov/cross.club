@@ -13,8 +13,8 @@
                             <a class="header__number header__info" href="tel:+89507174848">
                                 +7(950) 717-48-48
                             </a>
-                            <a class="header__mail header__info" href="mailto:adminemail@mail.com">
-                                maks.riapolov@yandex.ru
+                            <a class="header__mail header__info" href="mailto:crossshop31@gmail.com">
+                                crossshop31@gmail.com
                             </a>
                         </div>
                     </div>
@@ -316,7 +316,7 @@
                         <div class="formalization__bottom">
                             <h3>Ожидайте звонка</h3>
                             <p class="formalization__desc">
-                                Мы&nbsp;не&nbsp;заставим Вас долго ждать.<br>В&nbsp;самое ближайшее время свяжемся с&nbsp;Вами и&nbsp;ответим на&nbsp;все интересующие Вас вопросы!
+                                Мы&nbsp;не&nbsp;заставим Вас долго ждать.<br>В&nbsp;самое ближайшее время, свяжемся с&nbsp;Вами и&nbsp;ответим на&nbsp;все интересующие Вас вопросы!
                             </p>
                         </div>
                     </div>
@@ -348,12 +348,12 @@
                         <div class="b-footer__wrap-info">
                             <span class="b-footer__info-item footer-number"></span>
                             <a href="tel:89040870275">
-                                89040870275
+                                +7 (904) 087-02-75
                             </a>
                         </div>
                         <div class="b-footer__wrap-info">
                             <span class="b-footer__info-item footer-email"></span>
-                            <a  href="mailto:maks.riapolov@yandex.ru">maks.riapolov@yandex.ru</a>
+                            <a  href="mailto:crossshop31@gmial.com">crossshop31@gmial.com</a>
                         </div>
                     </div>
                 </div>
