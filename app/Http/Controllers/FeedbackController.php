@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Feedback;
+use App\Mail\MessageMail;
 use App\Mail\WelcomeMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -19,15 +20,31 @@ class FeedbackController extends Controller
     {   
         $this->check($request);
         $params = $request->all();
-        $emailTo = $params['email'];
 
         Feedback::create($params);
-
-        Mail::to($emailTo)
-            ->bcc('crossshop31@gmail.com')
-            ->send(new WelcomeMail($params));
+        
+        $this->sendMail($params);
 
         return response()->json(['response' => true]);
+    }
+
+    private function sendMail($params)
+    {
+        $emailTo = $params['email'];
+
+        if($params['name'] == 'feedback_product') {
+            Mail::to($emailTo)
+                ->bcc('crossshop31@gmail.com')
+                ->send(new WelcomeMail($params));
+
+            return;
+        }
+
+        Mail::to('crossshop31@gmail.com')
+            ->send(new MessageMail($params));
+
+
+       
     }
 
     /**
