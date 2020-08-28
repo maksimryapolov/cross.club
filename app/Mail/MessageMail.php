@@ -44,6 +44,6 @@ class MessageMail extends Mailable
                 'message' => $this->message
 
             ]
-        ]);
+        ])->subject('Пользователь оставил заявку');
     }
 }
